@@ -39,12 +39,28 @@
                        },
                        {
                           "createRole":{
-                             "roleName":"Farmer",
+                             "roleName":"User",
                              "permissions":[
                                 "can_add_asset_qty",
+                                "can_get_all_acc_ast",
+                                "can_get_all_acc_ast_txs",
+                                "can_get_all_acc_detail",
+                                "can_get_all_acc_txs",
+                                "can_get_all_accounts",
+                                "can_get_all_signatories",
+                                "can_get_all_txs",
+                                "can_get_blocks",
+                                "can_get_roles",
+                                "can_read_assets"
+                             ]
+                          }
+                       },
+                       {
+                          "createRole":{
+                             "roleName":"Farmer",
+                             "permissions":[
                                 "can_create_asset",
-                                "can_receive",
-                                "can_transfer"
+                                "can_transfer",
                              ]
                           }
                        },
@@ -52,21 +68,17 @@
                           "createRole":{
                              "roleName":"Logistics",
                              "permissions":[
-                                "can_add_asset_qty",
-                                "can_create_asset",
                                 "can_receive",
-                                "can_transfer"
+                                "can_transfer",
                              ]
                           }
                        },
                        {
                           "createRole":{
-                             "roleName":"Processing Hub",
+                             "roleName":"Warehouse",
                              "permissions":[
-                                "can_add_asset_qty",
-                                "can_create_asset",
                                 "can_receive",
-                                "can_transfer"
+                                "can_transfer",
                              ]
                           }
                        },
@@ -74,24 +86,20 @@
                           "createRole":{
                              "roleName":"Buyer",
                              "permissions":[
-                                "can_add_asset_qty",
-                                "can_create_asset",
                                 "can_receive",
-                                "can_transfer"
                              ]
                           }
                        },
                        {
                           "createDomain":{
                              "domainId":"agrifoodsupply",
-                             "defaultRole":"Farmer"
+                             "defaultRole":"User"
                           }
                        },
                        {
                           "createAsset":{
-                             "assetName":"coin",
+                             "assetName":"Tomato",
                              "domainId":"agrifoodsupply",
-                             "precision":2
                           }
                        },
                        {
@@ -103,9 +111,30 @@
                        },
                        {
                           "createAccount":{
-                             "accountName":"test",
+                             "accountName":"farmer1",
                              "domainId":"agrifoodsupply",
                              "publicKey":"716fe505f69f18511a1b083915aa9ff73ef36e6688199f3959750db38b8f4bfc"
+                          }
+                       },
+                       {
+                          "createAccount":{
+                             "accountName":"logistics1",
+                             "domainId":"agrifoodsupply",
+                             "publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKLCs/waulc5JrehAvW2xjPOyN+2/KP9u9kHNsle1kGg5uAo980+W6zidUEgztaJYz5SvKNXQ3s/IAxtnQbkxJcCAwEAAQ=="
+                          }
+                       },
+                       {
+                          "createAccount":{
+                             "accountName":"warehouse1",
+                             "domainId":"agrifoodsupply",
+                             "publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIKzJvT8LV/QhnfoL/v8ct0gDZeggDa2S+jNl2Lb+sFnJTTJ9znVZD04nIk/i1o+arCfcgWfPYmEkX4SmLgduZMCAwEAAQ=="
+                          }
+                       },
+                       {
+                          "createAccount":{
+                             "accountName":"buyer1",
+                             "domainId":"agrifoodsupply",
+                             "publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIHY0+X5pFTVOeHXoQRqFP5gttk9uzF8oAqJPzq53ncBgczXtMwECnGLXndGREvRqyTlcSJ2ojT5RR2Y+LAEGRcCAwEAAQ=="
                           }
                        },
                        {
@@ -113,7 +142,31 @@
                              "accountId":"admin@agrifoodsupply",
                              "roleName":"admin"
                           }
-                       }
+                       },
+                       {
+                          "appendRole":{
+                             "accountId":"farmer1@agrifoodsupply",
+                             "roleName":"Farmer"
+                          }
+                       },
+                       {
+                          "appendRole":{
+                             "accountId":"logistics1@agrifoodsupply",
+                             "roleName":"Logistics"
+                          }
+                       },
+                       {
+                          "appendRole":{
+                             "accountId":"warehouse1@agrifoodsupply",
+                             "roleName":"Warehouse"
+                          }
+                       },
+                       {
+                          "appendRole":{
+                             "accountId":"buyer1@agrifoodsupply",
+                             "roleName":"Buyer"
+                          }
+                       },
                     ],
                     "quorum":1
                  }
